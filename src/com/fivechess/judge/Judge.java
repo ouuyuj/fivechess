@@ -35,7 +35,7 @@ public class Judge {
 			}
 		}
 		//横向向右
-		for(int x=xIndex+1;x<19;x++){
+		for(int x=xIndex+1;x<15;x++){
 			if(chess[x][yIndex] == role){  
                 continueCount++;
 			}
@@ -60,7 +60,7 @@ public class Judge {
 			}
 		}
 		//纵向向下
-		for(int y=yIndex+1;y<19;y++){
+		for(int y=yIndex+1;y<15;y++){
 			if(chess[xIndex][y] == role){  
                 continueCount++;
 			}
@@ -85,7 +85,7 @@ public class Judge {
 			}
 		}
 		//右下
-		for(int x=xIndex+1,y=yIndex+1;x<19 && y<19;x++,y++){
+		for(int x=xIndex+1,y=yIndex+1;x<15 && y<15;x++,y++){
 			if(chess[x][y] == role){  
                 continueCount++;
 			}
@@ -101,7 +101,7 @@ public class Judge {
 			continueCount = 1;
 		}
 		//右上
-		for(int x=xIndex+1,y=yIndex-1;x<19 && y>=0;x++,y--){
+		for(int x=xIndex+1,y=yIndex-1;x<15 && y>=0;x++,y--){
 			if(chess[x][y] == role){  
                 continueCount++;
 			}
@@ -110,7 +110,7 @@ public class Judge {
 			}
 		}
 		//左下
-		for(int x=xIndex-1,y=yIndex+1;x>=0 && y<19;x--,y++){
+		for(int x=xIndex-1,y=yIndex+1;x>=0 && y<15;x--,y++){
 			if(chess[x][y] == role){  
                 continueCount++;
 			}

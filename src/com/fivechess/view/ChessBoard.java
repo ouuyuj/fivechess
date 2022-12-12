@@ -18,8 +18,8 @@ import java.awt.event.MouseMotionListener;
  */
 public class ChessBoard extends JPanel implements MouseMotionListener,MouseListener{
     public static final int GAME_OVER=0; //结束游戏
-    public static final int COLS=16;
-    public static final int RAWS=16;//棋盘的行数和列数
+    public static final int COLS=15;
+    public static final int RAWS=15;//棋盘的行数和列数
     public int result=1; //结果，为0则结束游戏
     public Image whiteChess;
     //黑白棋子
@@ -115,21 +115,17 @@ public class ChessBoard extends JPanel implements MouseMotionListener,MouseListe
 
         int chessBoardImageHeight = chessBoardImage.getHeight(null);
         int chessBoardImageWidth  = chessBoardImage.getWidth(null);
-        // int x=(FrameWidth-500)/2; 
-        // int y=(FrameHeight-500)/2;
-        int x=(chessBoardImageWidth + 36 - 500) / 2; 
-        int y=(chessBoardImageHeight + 36 - 500) / 2;
 
-        int sizeOfGrid = 36;
-        
-    	int px=mousex-(mousex-x)%sizeOfGrid;//35为棋盘格子大小
-        int py=mousey-(mousey-y)%sizeOfGrid;
-        if(px<x)px=x;
-        if(py<y)py=y;
-        if(px>(x+(535-sizeOfGrid)))
-           px=x+(535-sizeOfGrid);
-        if(py>(y+(535-sizeOfGrid)))
-          py=y+(535-sizeOfGrid);
+        int boundr = chessBoardImageWidth - 5; 
+        int boundb = chessBoardImageHeight - 5;
+
+        int px = ((mousex - 40 < 0 ? 0 : mousex - 40) / 35) * 35 + 40;//?越界bug
+        int py = ((mousey - 40 < 0 ? 0 : mousey - 40) / 35) * 35 + 40;
+
+        if(px > boundr)
+            px = boundr;
+        if(py > boundb)
+            py = boundb;
 
         // System.out.println("Debug showPosition");
         g.drawImage(position,px,py,34,34,null);
