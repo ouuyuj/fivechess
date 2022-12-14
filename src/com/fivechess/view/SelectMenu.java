@@ -20,9 +20,6 @@ import org.apache.log4j.Logger;
  *
  */
 public class SelectMenu extends JFrame implements MouseListener{
-	public static void main(String[] args) {
-		new SelectMenu();
-	}
 	public SelectMenu()
 	{
 		

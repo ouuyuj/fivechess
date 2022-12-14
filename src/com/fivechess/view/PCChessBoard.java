@@ -117,9 +117,9 @@ public class PCChessBoard extends ChessBoard{
             chessX = e.getX();
             chessY = e.getY();
             //将点击限制在棋盘内
-            if (chessX < 534 + 35 && chessX > 35 && chessY < 534 + 35 && chessY > 35) {
-                float x = (chessX - 35) / 35;
-                float y = (chessY - 35) / 35;
+            if (chessX < 525 + 35 && chessX > 40 && chessY < 525 + 35 && chessY > 40) {
+                float x = (chessX - 40) / 35;
+                float y = (chessY - 40) / 35;
                 int x1 = (int) x;
                 int y1 = (int) y;
                 //如果这个地方没有棋子
@@ -166,9 +166,9 @@ public class PCChessBoard extends ChessBoard{
     @Override
     public void mouseMoved(MouseEvent e) {
     	if(clickable==MainBoard.CAN_CLICK_INFO) {
-    		 mousex=e.getX();
-    		 mousey=e.getY();
-    		 repaint();
+    		mousex=e.getX();
+    		mousey=e.getY();
+    		repaint();
     	}
     }
 
