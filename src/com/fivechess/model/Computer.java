@@ -185,7 +185,7 @@ public class Computer {
         else if(count==2&&i==0&&countTwo>1)//有两个颜色相同的棋子，并且没有不同颜色的棋子堵，八个方向，两个颜色一样的连在一起的个数>1
         {
             scores=scores+60000;
-            System.out.println("双活二"+scores);
+            // System.out.println("双活二"+scores);
         }
         //活三
         else if(count==3&&i==0&&role==Chess.WHITE)//有三个白色棋子，并且没有不同颜色的棋子堵
@@ -197,6 +197,11 @@ public class Computer {
         {
             scores=scores+80000;//黑子和白子同时活三的时候选择黑子成，所以分数高
             //System.out.println("黑子活三"+scores);
+        }
+        
+        else if(count==3&&i==0&&countTwo>2)
+        {
+            scores = scores+100000;
         }
         //冲三
         else if(count==3&&i==1&&role==Chess.WHITE)//有三个黑色棋子，但其中一头已经被堵
