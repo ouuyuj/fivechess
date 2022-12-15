@@ -22,7 +22,6 @@ public class MainBoard extends JFrame implements MouseListener, ActionListener {
     public JLabel label_timeCount;// 计时
     public JLabel timecount;
     public TimeThread timer;
-<<<<<<< HEAD
     public int result = 1;
 
     public TimeThread getTimer() {
@@ -36,15 +35,6 @@ public class MainBoard extends JFrame implements MouseListener, ActionListener {
     public MainBoard() {
         setLayout(null); // 取消原来布局
         setBounds(100, 30, 1100, 750);
-=======
-    public int result=1; 
-    public TimeThread getTimer() {return timer;}
-    public JLabel getLabel() {return label_timeCount;}
-    public MainBoard()
-    {
-        setLayout(null); //取消原来布局
-        setBounds(100,30,1000,850);
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
         init1();
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

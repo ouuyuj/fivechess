@@ -4,14 +4,9 @@ import com.fivechess.judge.*;
 import com.fivechess.model.*;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-
 import org.apache.log4j.Logger;
 
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 /**
  * 加载人机棋盘
@@ -121,11 +116,7 @@ public class PCChessBoard extends ChessBoard {
         if (clickable == MainBoard.CAN_CLICK_INFO) {
             chessX = e.getX();
             chessY = e.getY();
-<<<<<<< HEAD
             // 将点击限制在棋盘内
-=======
-            //将点击限制在棋盘内
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
             if (chessX < 525 + 35 && chessX > 40 && chessY < 525 + 35 && chessY > 40) {
                 float x = (chessX - 40) / 35;
                 float y = (chessY - 40) / 35;
@@ -176,19 +167,11 @@ public class PCChessBoard extends ChessBoard {
      **/
     @Override
     public void mouseMoved(MouseEvent e) {
-<<<<<<< HEAD
         if (clickable == MainBoard.CAN_CLICK_INFO) {
             mousex = e.getX();
             mousey = e.getY();
             repaint();
         }
-=======
-    	if(clickable==MainBoard.CAN_CLICK_INFO) {
-    		mousex=e.getX();
-    		mousey=e.getY();
-    		repaint();
-    	}
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
     }
 
 }
