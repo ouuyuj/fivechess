@@ -45,7 +45,7 @@ public class Computer {
         else if(level==ChooseLevel.MEDIUM)
         {
         	//加载初级人机函数
-            countMaxLines_primary(chess, Chess.WHITE);
+            countMaxLines_medium(chess, Chess.WHITE);
             return coord;
 
         }
@@ -53,7 +53,7 @@ public class Computer {
         else if(level==ChooseLevel.SENIOR)
         {
         	//加载中级人机函数
-            countMaxLines_medium(chess,Chess.WHITE);
+            countMaxLines_senior(chess,Chess.WHITE);
             return coord;
         }
         return coord;
@@ -67,7 +67,7 @@ public class Computer {
      * @param chess 棋盘数组
      * @param role  白棋还是黑棋
      */
-    public void countMaxLines_medium(int chess[][],int role)
+    public void countMaxLines_senior(int chess[][],int role)
     {
     	/*
     	 * 创建一个坐标对象playerCoord，通过它将最大点的坐标赋值给coord
@@ -87,9 +87,9 @@ public class Computer {
             	 * 创建一个计算分数的函数countEveryPos
             	 * 从而得到每一个坐标点（未落子）的分数        
             	 */    
-            		countEveryPos_medium(x, y, chess, role);//countEveryPos判断连子，并且得到分数
+            		countEveryPos_senior(x, y, chess, role);//countEveryPos判断连子，并且得到分数
                     everyPlayerPointScore[x][y] = scores;
-                    countEveryPos_medium(x, y, chess, Chess.BLACK); 
+                    countEveryPos_senior(x, y, chess, Chess.BLACK); 
                     everyComputerPointScore[x][y] = scores;
                 }
                 else
@@ -101,7 +101,7 @@ public class Computer {
             }
         }
        //如果玩家棋子点处的分数值大于或等于机器人分数，则将最大分数赋值给coord
-        if(findBestPos_medium(everyPlayerPointScore, playerCoord)>=findBestPos(everyComputerPointScore,computerCoord))
+        if(findBestPos_senior(everyPlayerPointScore, playerCoord)>=findBestPos(everyComputerPointScore,computerCoord))
         {
             coord=playerCoord;
         }
@@ -117,7 +117,7 @@ public class Computer {
      * @param c 保存最大分数点的坐标
      * @return 最大分数
      */
-    public int findBestPos_medium(int a[][],Coord c)
+    public int findBestPos_senior(int a[][],Coord c)
     {
         int i,j,max=0;
 
@@ -153,7 +153,7 @@ public class Computer {
      * @param role 棋子种类
      * 
      */
-    public void mark_medium(int count,int i,int countTwo,int role)
+    public void mark_senior(int count,int i,int countTwo,int role)
     {
     	/*
     	 * 冲X：     只有一个点可以连成X+1的X个子，即有一边已经被堵
@@ -255,7 +255,7 @@ public class Computer {
      * @param chess 棋盘数组
      * @param role  棋子种类
      */
-    public void countEveryPos_medium(int x,int y,int chess[][],int role)
+    public void countEveryPos_senior(int x,int y,int chess[][],int role)
     {
         scores=0;
         basicScore(x,y);
@@ -263,7 +263,7 @@ public class Computer {
          * countTwo代表有一个坐标向八个方向，有两个连一起的个数
          * count代表颜色相同的棋子个数
          * up，down，···表示在某个方向上颜色不同的棋子个数
-         * up+down，left+right，···表示在这一条线上不同颜色棋子的个数，即mark_medium函数中的i
+         * up+down，left+right，···表示在这一条线上不同颜色棋子的个数，即mark_senior函数中的i
          */
         int matchRole,startX=x,startY=y,
                 count=0,up=0,down=0,left=0,right=0,
@@ -314,7 +314,7 @@ public class Computer {
             countTwo++;//八个方向上，有两个连在一起
             //System.out.println("出现二连"+countTwo);
         }
-        mark_medium(count, up + down, countTwo,role);
+        mark_senior(count, up + down, countTwo,role);
 
         //水平方向判断
         x = startX;
@@ -356,7 +356,7 @@ public class Computer {
             countTwo++;
             //System.out.println("出现二连"+countTwo);
         }
-        mark_medium(count, left + right, countTwo,role);
+        mark_senior(count, left + right, countTwo,role);
 
         //右倾斜方向判断
         x = startX;
@@ -400,7 +400,7 @@ public class Computer {
             countTwo++;
            // System.out.println("出现二连"+countTwo);
         }
-        mark_medium(count, leftUp + rightDown, countTwo,role);
+        mark_senior(count, leftUp + rightDown, countTwo,role);
 
         //左倾斜方向判断
         x = startX;
@@ -444,18 +444,18 @@ public class Computer {
             countTwo++;
            // System.out.println("出现二连"+countTwo);
         }
-        mark_medium(count, leftDown + rightUp, countTwo,role);
+        mark_senior(count, leftDown + rightUp, countTwo,role);
     }
 
 
 
-    /*********************下面是初级人机*************************************/
+    /*********************下面是中级人机*************************************/
     /**
      * 找出分数最大的坐标
      * @param chess 棋盘数组
      * @param role  白棋还是黑棋
      */
-    public void countMaxLines_primary(int chess[][],int role)
+    public void countMaxLines_medium(int chess[][],int role)
     {
     	/*
     	 * 创建一个坐标对象playerCoord，通过它将最大点的坐标赋值给coord
@@ -469,9 +469,9 @@ public class Computer {
             for(y=0;y<15;y++)
             {
                 if(chess[x][y]==Chess.BLANK) {
-                    countEveryPos_primary(x, y, chess, role);
+                    countEveryPos_medium(x, y, chess, role);
                     everyPlayerPointScore[x][y] = scores;
-                    countEveryPos_primary(x, y, chess, Chess.BLACK);
+                    countEveryPos_medium(x, y, chess, Chess.BLACK);
                     everyComputerPointScore[x][y] = scores;
                 }
                 else
@@ -530,7 +530,7 @@ public class Computer {
      * 四颗连子，且无阻挡加100000分
      * 四颗连子，一边被阻挡，不论黑子白子，都在另一边落子加90000分
      */
-    public void mark_primary(int count,int i)
+    public void mark_medium(int count,int i)
     {
         if(count==1)
         {
@@ -583,7 +583,7 @@ public class Computer {
      * @param chess
      * @param role
      */
-    public void countEveryPos_primary(int x,int y,int chess[][],int role)
+    public void countEveryPos_medium(int x,int y,int chess[][],int role)
     {
         scores=0;
         int matchRole,startX=x,startY=y,count=0,up=0,down=0,left=0,right=0,leftUp=0,leftDown=0,rightUp=0,rightDown=0;
@@ -626,7 +626,7 @@ public class Computer {
                 break;
             }
         }
-        mark_primary(count, up + down);
+        mark_medium(count, up + down);
 
         //水平方向判断
         x = startX;
@@ -662,7 +662,7 @@ public class Computer {
                 break;
             }
         }
-        mark_primary(count, left + right);
+        mark_medium(count, left + right);
 
         //右倾斜方向判断
         x = startX;
@@ -700,7 +700,7 @@ public class Computer {
                 break;
             }
         }
-        mark_primary(count, leftUp + rightDown);
+        mark_medium(count, leftUp + rightDown);
 
         //左倾斜方向判断
         x = startX;
@@ -738,7 +738,7 @@ public class Computer {
                 break;
             }
         }
-        mark_primary(count, leftDown +rightUp);
+        mark_medium(count, leftDown + rightUp);
     }
 
 }

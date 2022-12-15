@@ -28,7 +28,7 @@ public class MainBoard extends JFrame implements MouseListener,ActionListener{
     public MainBoard()
     {
         setLayout(null); //取消原来布局
-        setBounds(100,30,1000,650);
+        setBounds(100,30,1000,850);
         init1();
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

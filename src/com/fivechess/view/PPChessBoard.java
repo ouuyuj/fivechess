@@ -67,6 +67,13 @@ public class PPChessBoard extends ChessBoard{
         }
 	}
     /**
+     * 求和，游戏和棋结束
+     */
+    public void drawChess() {
+        
+        new SelectMenu();
+    }
+    /**
      * 设置棋子横坐标
      * @param x,y,r 横坐标,纵坐标,对方的角色黑/白
      */

@@ -18,6 +18,7 @@ import java.awt.event.MouseMotionListener;
  */
 public class ChessBoard extends JPanel implements MouseMotionListener,MouseListener{
     public static final int GAME_OVER=0; //结束游戏
+    public static final int DRAWCHESS=2;
     public static final int COLS=15;
     public static final int RAWS=15;//棋盘的行数和列数
     public int result=1; //结果，为0则结束游戏
