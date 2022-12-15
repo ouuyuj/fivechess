@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 /**
  * 人人对战棋盘
@@ -18,7 +17,6 @@ import java.awt.event.MouseListener;
  */
 public class PPChessBoard extends ChessBoard {
     private int role; // 角色
-    private JTextArea talkArea; // 交流信息
     private PPMainBoard mb;
     private int step[][] = new int[30 * 30][2];// 定义储存步数数组
     private int stepCount = 0;// 初始化数组
@@ -45,7 +43,6 @@ public class PPChessBoard extends ChessBoard {
      * @param area 聊天窗口
      */
     public void setInfoBoard(JTextArea area) {
-        talkArea = area;
     }
 
     /**
@@ -90,13 +87,6 @@ public class PPChessBoard extends ChessBoard {
 
     }
 
-    /**
-     * 求和，游戏和棋结束
-     */
-    public void drawChess() {
-        
-        new SelectMenu();
-    }
     /**
      * 设置棋子横坐标
      * 
@@ -215,11 +205,7 @@ public class PPChessBoard extends ChessBoard {
         if (clickable == PPMainBoard.CAN_CLICK_INFO) {
             chessX = e.getX();
             chessY = e.getY();
-<<<<<<< HEAD
             // 限定点击区域为棋盘区域
-=======
-            //限定点击区域为棋盘区域
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
             if (chessX < 525 + 35 && chessX > 40 && chessY < 525 + 35 && chessY > 40) {
                 float x = (chessX - 40) / 35;
                 float y = (chessY - 40) / 35;
@@ -261,7 +247,6 @@ public class PPChessBoard extends ChessBoard {
      * 
      * @param e
      **/
-<<<<<<< HEAD
     @Override
     public void mouseMoved(MouseEvent e) {
         if (clickable == MainBoard.CAN_CLICK_INFO) {
@@ -270,15 +255,5 @@ public class PPChessBoard extends ChessBoard {
             repaint();
         }
     }
-=======
-     @Override
-     public void mouseMoved(MouseEvent e) {
-     	if(clickable==MainBoard.CAN_CLICK_INFO) {
-            mousex=e.getX();
-            mousey=e.getY();
-            repaint();
-     	}
-     }
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
 
 }

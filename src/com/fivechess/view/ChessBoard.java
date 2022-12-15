@@ -2,11 +2,9 @@ package com.fivechess.view;
 
 import com.fivechess.model.Chess;
 
-import javax.management.MBeanAttributeInfo;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -17,21 +15,12 @@ import java.awt.event.MouseMotionListener;
  * 
  * @author: admin
  */
-<<<<<<< HEAD
 public class ChessBoard extends JPanel implements MouseMotionListener, MouseListener {
     public static final int GAME_OVER = 0; // 结束游戏
     public static final int DRAWCHESS = 2;
     public static final int COLS = 15;
     public static final int RAWS = 15;// 棋盘的行数和列数
     public int result = 1; // 结果，为0则结束游戏
-=======
-public class ChessBoard extends JPanel implements MouseMotionListener,MouseListener{
-    public static final int GAME_OVER=0; //结束游戏
-    public static final int DRAWCHESS=2;
-    public static final int COLS=15;
-    public static final int RAWS=15;//棋盘的行数和列数
-    public int result=1; //结果，为0则结束游戏
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
     public Image whiteChess;
     // 黑白棋子
     public Image chessBoardImage;

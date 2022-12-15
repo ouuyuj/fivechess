@@ -3,20 +3,16 @@ package com.fivechess.view;
 import com.fivechess.model.*;
 import com.fivechess.net.*;
 
-import javax.management.MBeanAttributeInfo;
 import javax.swing.*;
 
 import org.apache.log4j.Logger;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.util.ArrayList;
 
 /**
  * 人人对战页面
@@ -28,7 +24,6 @@ public class PPMainBoard extends MainBoard {
     private PPChessBoard cb;
     private JButton startGame;
     private JButton exitGame;
-<<<<<<< HEAD
     private JButton back;// 悔棋按钮
     private JButton giveUp;// 认输按钮
     private JButton drawChess;// 求和按钮
@@ -43,22 +38,6 @@ public class PPMainBoard extends MainBoard {
     private JLabel situation2;// 对手状态标签
     private JLabel jLabel1;
     private JLabel jLabel2;//
-=======
-    private JButton drawChess;
-    private JButton back;//悔棋按钮
-
-    private JButton send; //聊天发送按钮
-    private JLabel timecount;//计时器标签
-    //双方状态
-    private JLabel people1;//自己标签
-    private JLabel people2;//对手标签
-    private JLabel p1lv;//自己等级标签
-    private JLabel p2lv;//对手等级标签
-    private JLabel situation1;//自己状态标签
-    private JLabel situation2;//对手状态标签
-	private JLabel jLabel1;
-	private JLabel jLabel2;//
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
     private JTextArea talkArea;
     private JTextField tf_ip; // 输入IP框
     private JTextField talkField; // 聊天文本框
@@ -116,7 +95,6 @@ public class PPMainBoard extends MainBoard {
         cb.setBounds(210, 40, 570, 585);
         cb.setVisible(true);
         cb.setInfoBoard(talkArea);
-<<<<<<< HEAD
         tf_ip = new JTextField("请输入对手IP地址");
         tf_ip.setBounds(780, 75, 200, 30);
         tf_ip.addMouseListener(this);
@@ -126,25 +104,10 @@ public class PPMainBoard extends MainBoard {
         startGame.setFont(new Font("宋体", Font.BOLD, 20));// 设置字体，下同
         startGame.addActionListener(this);
         back = new JButton("悔  棋");
-=======
-
-        tf_ip=new JTextField("请输入对手IP地址");
-        tf_ip.setBounds(780, 75, 200, 30);
-        tf_ip.addMouseListener(this);
-        
-        startGame=new JButton("准备游戏");//设置名称，下同
-        startGame.setBounds(780,130, 200, 50);//设置起始位置，宽度和高度，下同
-        startGame.setBackground(new Color(50,205,50));//设置颜色，下同
-        startGame.setFont(new Font("宋体", Font.BOLD, 20));//设置字体，下同
-        startGame.addActionListener(this);
-
-        back=new JButton("悔  棋");
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
         back.setBounds(780, 185, 200, 50);
         back.setBackground(new Color(85, 107, 47));
         back.setFont(new Font("宋体", Font.BOLD, 20));
         back.addActionListener(this);
-<<<<<<< HEAD
         giveUp = new JButton("认  输");
         giveUp.setBounds(780, 240, 200, 50);
         giveUp.setBackground(new Color(107, 160, 109));
@@ -176,40 +139,6 @@ public class PPMainBoard extends MainBoard {
         people2.setOpaque(true);
         people2.setBackground(new Color(82, 109, 165));
         people2.setBounds(10, 75, 200, 50);
-=======
-
-        send=new JButton("发送");
-        send.setBounds(840, 600, 60, 30);
-        send.setBackground(new Color(50,205,50));
-        send.addActionListener(this);
-
-        talkField=new JTextField("聊天");
-        talkField.setBounds(780, 560, 200, 30);
-        talkField.addMouseListener(this);
-
-        exitGame=new JButton("返  回");
-        exitGame.setBackground(new Color(218,165,32));
-        exitGame.setBounds(780,240,200,50);
-        exitGame.setFont(new Font("宋体", Font.BOLD, 20));//设置字体，下同
-        exitGame.addActionListener(this);
-
-        drawChess=new JButton("求  和");
-        drawChess.setBackground(new Color(180,50,90));
-        drawChess.setBounds(780, 295, 200, 50);
-        drawChess.setFont(new Font("宋体", Font.BOLD, 20));
-        drawChess.addActionListener(this);
-
-        people1=new JLabel("    我:");
-        people1.setOpaque(true); 
-        people1.setBackground(new Color(82,109,165));
-        people1.setBounds(10,410,200,50);
-        people1.setFont(new Font("宋体", Font.BOLD, 20));
-
-        people2=new JLabel("    对手:");
-        people2.setOpaque(true); 
-        people2.setBackground(new Color(82,109,165));
-        people2.setBounds(10,75,200,50);
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
         people2.setFont(new Font("宋体", Font.BOLD, 20));
         timecount = new JLabel("    计时器:");
         timecount.setBounds(320, 1, 200, 50);
@@ -224,7 +153,6 @@ public class PPMainBoard extends MainBoard {
         p2lv.setBackground(new Color(82, 109, 165));
         p2lv.setBounds(10, 405, 200, 50);
         p2lv.setFont(new Font("宋体", Font.BOLD, 20));
-<<<<<<< HEAD
         situation1 = new JLabel("    状态:");
         situation1.setOpaque(true);
         situation1.setBackground(new Color(82, 109, 165));
@@ -234,19 +162,6 @@ public class PPMainBoard extends MainBoard {
         situation2.setOpaque(true);
         situation2.setBackground(new Color(82, 109, 165));
         situation2.setBounds(10, 460, 200, 50);
-=======
-
-        situation1=new JLabel("    状态:");
-        situation1.setOpaque(true); 
-        situation1.setBackground(new Color(82,109,165));
-        situation1.setBounds(10,185,200,50);
-        situation1.setFont(new Font("宋体", Font.BOLD, 20));
-
-        situation2=new JLabel("    状态:");
-        situation2.setOpaque(true); 
-        situation2.setBackground(new Color(82,109,165));
-        situation2.setBounds(10,520,200,50);
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
         situation2.setFont(new Font("宋体", Font.BOLD, 20));
         jLabel1 = new JLabel();
         add(jLabel1);
@@ -257,22 +172,12 @@ public class PPMainBoard extends MainBoard {
         timecount = new JLabel("    计时器:");
         timecount.setBounds(320, 1, 200, 50);
         timecount.setFont(new Font("宋体", Font.BOLD, 30));
-<<<<<<< HEAD
         talkArea = new JTextArea(); // 对弈信息
-=======
-
-        talkArea=new JTextArea();  //对弈信息
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
         talkArea.setEnabled(false);
         talkArea.setBackground(Color.BLUE);
         // 滑动条
         JScrollPane p = new JScrollPane(talkArea);
         p.setBounds(780, 350, 200, 200);
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 61e402ef1d208599446f5ec33c540e6f774abc14
         add(tf_ip);
         add(cb);
         add(startGame);
@@ -381,26 +286,19 @@ public class PPMainBoard extends MainBoard {
                                 cb.drawChess();
                             } else if (msg[0].equals("noDrawChess")) {
                                 JOptionPane.showMessageDialog(cb, "对方不允许您求和");
-                            }
-                            else if(msg[0].equals("drawChess"))
-                            {
-                                int n=JOptionPane.showConfirmDialog(cb, "是否同意对方求和", "选择",JOptionPane.YES_NO_OPTION);
-                            	//点击确定按钮则可以悔棋
-                            	if(n==JOptionPane.YES_OPTION)
-                            	{
-                            		NetTool.sendUDPBroadCast(ia.getHostName(), "canDrawChess"+", ");
-                            	}
-                            	else {
-                            		NetTool.sendUDPBroadCast(ia.getHostName(), "noDrawChess"+", ");
-								}
-                            }
-                            else if(msg[0].equals("canDrawChess"))
-                            {
+                            } else if (msg[0].equals("drawChess")) {
+                                int n = JOptionPane.showConfirmDialog(cb, "是否同意对方求和", "选择", JOptionPane.YES_NO_OPTION);
+                                // 点击确定按钮则可以悔棋
+                                if (n == JOptionPane.YES_OPTION) {
+                                    NetTool.sendUDPBroadCast(ia.getHostName(), "canDrawChess" + ", ");
+                                } else {
+                                    NetTool.sendUDPBroadCast(ia.getHostName(), "noDrawChess" + ", ");
+                                }
+                            } else if (msg[0].equals("canDrawChess")) {
                                 JOptionPane.showMessageDialog(cb, "对方允许您求和");
                                 dispose();
                                 cb.drawChess();
-                            }
-                            else if (msg[0].equals("noDrawChess")) {
+                            } else if (msg[0].equals("noDrawChess")) {
                                 JOptionPane.showMessageDialog(cb, "对方不允许您求和");
                             }
 
@@ -475,11 +373,10 @@ public class PPMainBoard extends MainBoard {
         else if (e.getSource() == exitGame) {
             dispose();
             new SelectMenu();
-        }else if(e.getSource()==drawChess)
-        {
-            //发送求和信息
-        	NetTool.sendUDPBroadCast(ip,"drawChess"+", ");	
-        	logger.info("玩家选择求和");
+        } else if (e.getSource() == drawChess) {
+            // 发送求和信息
+            NetTool.sendUDPBroadCast(ip, "drawChess" + ", ");
+            logger.info("玩家选择求和");
         }
     }
 
